@@ -1,0 +1,13 @@
+*.class
+*.log
+*.txt
+target/
+.idea/
+classes/
+.project
+.classpath
+.DS_Store
+*/.cache-main
+*/.cache-tests
+*/.settings
+.bsp
