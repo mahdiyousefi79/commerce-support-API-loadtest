@@ -25,7 +25,7 @@ trait CommerceBase {
     Instant.ofEpochMilli(millis)
   }
     val commerceSupportAPI = http("commerceSupportAPI")
-      .post(s"${config("commerceService.url")}/commerce/subscriptions/support/sku/59b8293e-e699-434d-ae0a-2e314cd10589?timeZoneMinutes=-300")
+      .post(s"${config("commerceService.url")}/commerce/subscriptions/support/sku/a85d8131-0086-4d5a-9df9-ee15f7909aec?timeZoneMinutes=-300")
       .header("Authorization", "#{bearer}")
       .header("oat", "#{oat}")
       .header("Content-Type", "application/json")
