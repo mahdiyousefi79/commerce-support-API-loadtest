@@ -62,8 +62,8 @@ trait CommerceBase {
     println(s"userCount=$userCount")
     println(s"requests=$requestCount")
 
-    val scn = scenario("Get Entitlement")
-      .exec(_.set("appId", "NbcuPeacock"))
+    val scn = scenario("Subscribe Support API")
+      .exec(_.set("appId", "hulu"))
       .feed(accounts)
       .exec(_.set("baseTime", baseTime))
       .exec(_.set("bearer", bearer))
