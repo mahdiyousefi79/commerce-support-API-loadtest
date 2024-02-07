@@ -29,7 +29,7 @@ trait CommerceBase {
       .header("Authorization", "#{bearer}")
       .header("oat", "#{oat}")
       .header("Content-Type", "application/json")
-      .header("msopartner", "acomcast")
+      .header("msopartner", "comcast")
       .header("sat-client-id", "x1:commerce-prod-test:e08fca")
       .check(status.is(200))
 
