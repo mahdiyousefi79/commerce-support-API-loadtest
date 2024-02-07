@@ -30,8 +30,7 @@ trait CommerceBase {
       .header("oat", "#{oat}")
       .header("Content-Type", "application/json")
       .header("msopartner", "acomcast")
-      .header("sat-client-id", "x1:commerce-stage:771263")
-      .header("Accept", "application/json;vnd.commerce.v2")
+      .header("sat-client-id", "x1:commerce-prod-test:e08fca")
       .check(status.is(200))
 
     def printVar(key: String): Expression[Session] = (session: Session) => {
