@@ -24,7 +24,7 @@ trait CommerceBase {
     val millis = (now.toEpochMilli / 1000L) * 1000L // truncate seconds
     Instant.ofEpochMilli(millis)
   }
-    val supportAPI = http("supportAPI")
+    val commerceSupportAPI = http("commerceSupportAPI")
       .post(s"${config("commerceService.url")}/commerce/subscriptions/support/sku/59b8293e-e699-434d-ae0a-2e314cd10589?timeZoneMinutes=-300")
       .header("Authorization", "#{bearer}")
       .header("oat", "#{oat}")
@@ -54,7 +54,7 @@ trait CommerceBase {
   }
 
 
-  class GetEntitlements extends Simulation with CommerceBase {
+  class supportAPI extends Simulation with CommerceBase {
 
     val accounts = csv("data.csv").circular
     val totalTime = testTime + rampTime
@@ -62,13 +62,13 @@ trait CommerceBase {
     println(s"userCount=$userCount")
     println(s"requests=$requestCount")
 
-    val scn = scenario("Subscribe Support API")
+    val scn = scenario("supportAPI")
       .exec(_.set("appId", "NbcuPeacock"))
       .feed(accounts)
       .exec(_.set("baseTime", baseTime))
       .exec(_.set("bearer", bearer))
       .repeat(requestCount) {
-        exec(supportAPI)
+        exec(commerceSupportAPI)
       }
     setUp(scn.inject(atOnceUsers(1), rampUsers(userCount).during(testTime.minutes)))
   }
